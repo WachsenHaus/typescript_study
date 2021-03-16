@@ -1,5 +1,5 @@
-console.log("hello world~");
 
+// 재귀 구구
 function recurGUGU(dan,depth){
     if(depth===1) {
         return dan*depth;
