@@ -1,3 +1,6 @@
+#노션
+https://www.notion.so/bi9choi/TypeScript-Template-ba97abf3901e44bb9f612ae07c7ee313
+
 # 타입스크립트
 
 ### 타입 스크립트 설치
