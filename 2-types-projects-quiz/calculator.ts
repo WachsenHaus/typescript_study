@@ -21,5 +21,7 @@ function calculate(mode:Mode, x:number, y:number): number{
             return x%y;
         case "substract":
             return x-y;
+        default:
+            throw Error("계산기 에러!")
     }
 }
