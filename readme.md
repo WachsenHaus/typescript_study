@@ -19,8 +19,8 @@ https://www.notion.so/bi9choi/TypeScript-Template-ba97abf3901e44bb9f612ae07c7ee3
 * 캡슐화  
   * 연관 되어 있는 데이터를 하나로 묶는것.
   * 어떤 데이터를 숨길것인지.
-* 추상성  
-  * 
+* 추상화
+  * 필요한 함수만 노출해서 심플하게 만드는 것.
 * 상속성
   * 
 * 다형성
