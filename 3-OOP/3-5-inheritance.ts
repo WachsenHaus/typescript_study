@@ -11,11 +11,6 @@
     interface CoffeMaker{
         makeCoffee(shots:number) : CoffeeCup;
     }
-    interface CommercialCoffeeMaker{
-        makeCoffee(shots:number):CoffeeCup;
-        fillCoffeeBeans(beans: number): void;
-        clean(): void;
-    }
     interface ComposeCoffee{
         makeWaffle(material:Waffle):Waffle;
 
@@ -61,14 +56,24 @@
         sauce:"바닐라"
     });
 
+
+
+
+
+
+
+
+
+
+    
     // public 
     // private 자바스크립트도 private가 되네
     // protected 상속을 할 때 외부에 접근을 할 수 없지만. 자식클래스에서 접근이 가능 
-    class CoffeeMakerMachine implements CoffeMaker,CommercialCoffeeMaker{
+    class CoffeeMakerMachine implements CoffeMaker{
         private static BEANS_GRAMM_PER_SHOT:number = 7; //class level로 중복 생 성안됨(메모리 절약). 
         private coffeeBeans:number = 0; // instance (object) level
         //인스턴스할때 항상 호출되는 함수
-        private constructor(coffeeBeans:number){
+        constructor(coffeeBeans:number){
             this.coffeeBeans = coffeeBeans;
         }
         
@@ -110,36 +115,34 @@
     }
 
 
-
-    class AmatuerUser{
-        constructor(private machine:CoffeMaker){}
-        makeCoffee(){
-            const coffee = this.machine.makeCoffee(2);
-            console.log(coffee);
+    class CaffeLatteMachine extends CoffeeMakerMachine {
+        constructor(coffeeBeans:number,public readonly serialNumber:string){
+            //상속받는 생성자가 필요한 정보를 슈퍼에 전달해줘야한다.
+            super(coffeeBeans);
+        }
+        private steamMilk() : void{
+            console.log("Steaming some milk... 🎈");
+        }
+        makeCoffee(shots:number):CoffeeCup{
+            const coffee = super.makeCoffee(shots);
+            this.steamMilk();
+            return {
+                shots,
+                hasMilk: true,
+            }
         }
     }
-    class ProBarista{
-        constructor(private machine:CommercialCoffeeMaker){}
-        makeCoffee(){
-            const coffee = this.machine.makeCoffee(2);
-            console.log(coffee);
-            this.machine.fillCoffeeBeans(45);
-            this.machine.clean();
-        }
-    }
 
-    const maker:CoffeeMakerMachine = CoffeeMakerMachine.makeMachine(33);
+
+    const maker:CoffeeMakerMachine = new CoffeeMakerMachine(32);
+    const latteMachine = new CaffeLatteMachine(23,"11-233-1");
+    const coffee = latteMachine.makeCoffee(1);
+    console.log(coffee);
+    console.log(latteMachine.serialNumber);
     // maker.fillCoffeeBeans(32);
     // maker.makeCoffee(3);
     //커피메이커와 메이커머신은 동일하지만 커피메이커라는 인터페이스에는 존재하지않는다. 
     //얼마만큼의 행동을 약속하고 보장하고 허용할건지 결정할 수 있다.
-    const maker1 : CommercialCoffeeMaker = CoffeeMakerMachine.makeMachine(33);
-    // maker1.fillCoffeeBeans(32);
-    // maker1.makeCoffee(3);
-    // maker1.clean();
-    const amateur = new AmatuerUser(maker);
-    const pro = new ProBarista(maker);
-    amateur.makeCoffee();
-    pro.makeCoffee();
+
 
 }
