@@ -22,6 +22,15 @@ https://www.notion.so/bi9choi/TypeScript-Template-ba97abf3901e44bb9f612ae07c7ee3
 * 추상화
   * 필요한 함수만 노출해서 심플하게 만드는 것.
 * 상속성
-  * 
+  * 부모객체로부터 필드,메소드들을 전달 받는 것.
+  * 상속받은 객체에서 생성자를 수정할경우 super로 원래 부모객체가 필요로하는 정보를 전달인자로 넘겨줘야한다.
 * 다형성
-  * 
+  * 상속받은 객체에서 요청에 맞게 수정할 수 있다.
+
+### interface
+행동규약을 만드는 것  
+
+### constructor 전달인자
+* 전달인자에 public readonly를 넣는것은 압축된 표현이다.
+* public readonly serial:string;
+* this.serial = serial; 이거와 같음.
