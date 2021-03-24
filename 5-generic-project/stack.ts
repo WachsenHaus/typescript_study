@@ -7,15 +7,15 @@
     // 팝을하면 head는 이전의값으로 가르키면된다.
     
 
-    interface Stack<V>{
+    interface Stack<T>{
         readonly size: number;
-        push(value:V):void;
-        pop():V;
+        push(value:T):void;
+        pop():T;
     }
 
-    type StackNode<V> = {
-        readonly value : V;
-        readonly next?: StackNode<V>;
+    type StackNode<T> = {
+        readonly value : T;
+        readonly next?: StackNode<T>;
     }
 
     class StackImpl<V> implements Stack<V>{
