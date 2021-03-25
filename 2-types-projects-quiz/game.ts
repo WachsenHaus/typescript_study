@@ -11,7 +11,7 @@ const position:Position ={
     x:0,
     y:0
 }
-type Mode = "up" | "down" | "left" | "right";
+type Mode = "up" | "down" | "left" | "right" | "he";
 function move(mode:Mode){
     switch(mode)
     {
@@ -28,7 +28,9 @@ function move(mode:Mode){
             position.x++;
             break;
         default:
-            throw Error("move에러!")
+            //switch문 안에서 전달될 수 있는 모든 union타입별로 처리를 해야되는데. 이러한 실수 방지를 위한 트릭임.
+            const invalid: never = mode;
+            throw Error(`move에러!${invalid}`)
     }
 }
 console.log(position); // { x: 0, y: 0}

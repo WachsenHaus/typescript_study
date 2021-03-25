@@ -7,7 +7,7 @@
 예를들어 Text라는 타입은 스트링으로 구성되어있다.
 이렇게 원하는 타입을 정의하는것을 타입 엘리어스라고한다.
 */
-    type Text = string;
+    type Text = string; 
     const name: Text = 'ellie';
     const address: Text = 'korea';
     type Num = number;

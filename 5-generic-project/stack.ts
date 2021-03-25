@@ -5,8 +5,6 @@
     // stack은 단일연결리스트를 수직으로 세우면 똑같다.
     // head는 마지막 값을 가르키고있다.
     // 팝을하면 head는 이전의값으로 가르키면된다.
-    
-
     interface Stack<T>{
         readonly size: number;
         push(value:T):void;
@@ -55,10 +53,4 @@
     while(stack.size !== 0){
         console.log(stack.pop());
     }
-
-    
-
-
-
-   
 }
