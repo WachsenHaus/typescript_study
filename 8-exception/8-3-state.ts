@@ -1,6 +1,23 @@
+{class TimeoutError extends Error{}
+class OfflineError extends Error{}
+
+type SuccessState = {
+    result : "success"
+}
+type NetworkErrorState = {
+    result : "fail",
+    reason : "offline" | "down" | "timeout";
+}
+
+type ResultState = SuccessState |NetworkErrorState ;
+
 class NetworkClient{
-    tryConnect() : void {
-        throw new OfflineError("no network!");
+    tryConnect() : ResultState {
+        
+        return {
+            result : "fail",
+            reason : "offline"
+        }
     }
 }
 
@@ -25,6 +42,9 @@ class App {
             //에러의 타입이 any타입이다.!
             //show dialog to user
             console.log("서버가 죽어서요.. 기다려주세요 -ㅅ- ㅋ")
+            if(error instanceof OfflineError){
+                // 
+            }
         }
     }
 }
@@ -33,3 +53,5 @@ const client = new NetworkClient();
 const service = new UserService(client);
 const app = new App(service);
 app.run();
+
+}
