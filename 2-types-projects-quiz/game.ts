@@ -11,7 +11,7 @@ const position:Position ={
     x:0,
     y:0
 }
-type Mode = "up" | "down" | "left" | "right" | "he";
+type Mode = "up" | "down" | "left" | "right" ;
 function move(mode:Mode){
     switch(mode)
     {

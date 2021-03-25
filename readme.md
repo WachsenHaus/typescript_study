@@ -76,3 +76,8 @@ function getFirst<T extends Stack<U>, U>(container: T): U {
   return item;
 }
 ```
+
+### 타입과 인터페이스의 차이
+
+- 인터페이스는 어떤것의 규격 사항이다. 이 정해진 인터페이스를 통해서 서로 상호관계를 한다.
+- 데이터를 담을 목적이라면 타입으로 하는것이 더 좋다.
