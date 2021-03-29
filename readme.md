@@ -81,3 +81,32 @@ function getFirst<T extends Stack<U>, U>(container: T): U {
 
 - 인터페이스는 어떤것의 규격 사항이다. 이 정해진 인터페이스를 통해서 서로 상호관계를 한다.
 - 데이터를 담을 목적이라면 타입으로 하는것이 더 좋다.
+
+### 모듈이란
+
+- 한 파일안에 있는 코드
+- 모듈별로 코드가 분리된다.
+
+- tsc --init
+- 타입스크리브 설정을 output한다. 해당 설정에 맞게 컴파일을 하게 된다.
+
+### TS config
+
+- outDir : 빌드시 나올 폴더를 설정할 수 있다/
+- rootDir : ts를 만들 폴더를 강제로 정할 수 있다. 모든 ts파일들은 rootdir안에있어야한다.
+- exclude : 빌드 안되게 막는것
+- include : 특정 ts만 빌드되게 하는것.
+- incremental : 수정된 내용만 컴파일하게된다. true로 하면 빨라진다. 예전에 컴파일한 정보를 디스크에 저장한다.
+- target : 컴파일된 버전을 설정할 수 있다. 버전이 낮다고 좋은게 아니다. 필요한
+- module : 모듈정보를 어떻게 할건지 정할수있다. 브라우저만 ecma, node라면 commonjs
+- lib : 사용할 라이브를 서낵할 수 있다. 보통은 선택하지 않는다.
+- allowjs : 프로젝트에 섞어쓸수있는지 체크한다.
+- checkjs : JS에서 뭔가 잘못되면 경고를 표시한다. JS,TS섞인다면 두가지 모두 true를 쓰자
+- jsx : 리액트에 관련된 것을 사용할 수 있는지 결정한다.
+- declaration : 내가 만든 코드를 라이브러리 처럼 사용할거 아니면 설정하지않는다.
+- sourceMap : true로 설정하면 .map이 파일이 생성된다.
+- outfile : 하나의 파일로 만들 때 사용한다.
+- compositie : increamental과 관련된것.
+- removeComments : 코멘트를 모두 지운다.
+- noEmit : 에러체크만 하고 JS코드로 변환하지 않는다.
+- strict : 그냥 ture쓰자.
